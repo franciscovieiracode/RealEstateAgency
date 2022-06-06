@@ -13,6 +13,10 @@ import {MatInputModule} from '@angular/material/input';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
+import { HeaderComponent } from './home-page/header/header.component';
+import { FooterComponent } from './home-page/footer/footer.component';
+import { HomeListComponent } from './home-page/home-list/home-list.component';
+import { SidebarComponent } from './home-page/sidebar/sidebar.component';
 
 
 
@@ -22,7 +26,11 @@ import { FormsModule } from '@angular/forms';
     AppComponent,
     HomePageComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    HeaderComponent,
+    FooterComponent,
+    HomeListComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,

@@ -1,1 +1,47 @@
-<p>register works!</p>
+<div fxLayoutAlign="center center" fxFlexFill>   
+    <mat-card fxFlex="25">
+        <h1 class="text-center">Register</h1>
+        <form fxLayout="column" (submit)="register()">
+
+            <mat-form-field>
+                <input required matInput  type="text" placeholder="Full Name" name="name" [(ngModel)]="name" #nameControl="ngModel" minlength="10"/>
+            </mat-form-field>
+            <div *ngIf="nameControl.touched && !nameControl.valid">
+                <div *ngIf="nameControl.errors?.['required']">This field is required</div>
+                <div *ngIf="nameControl.errors?.['minlength']">Minimum 10 caracteres</div>
+            </div>
+
+
+            <mat-form-field>
+                <input required matInput  type="email" placeholder="Email" name="email" [(ngModel)]="email" #emailControl="ngModel" ngModel [email]="true"/>
+            </mat-form-field>
+            <div *ngIf="emailControl.touched && !emailControl.valid">
+                <div *ngIf="emailControl.errors?.['required']">This field is required</div>
+                <div *ngIf="emailControl.errors?.['email']">Invalid email </div>
+            </div>
+
+            <mat-form-field>
+                <input required matInput  type="password" placeholder="Password" name="password" [(ngModel)]="password" #passwordControl="ngModel" minlength="8"/>
+            </mat-form-field>
+            <div *ngIf="passwordControl.touched && !passwordControl.valid">
+                <div *ngIf="passwordControl.errors?.['required']">This field is required</div>
+                <div *ngIf="passwordControl.errors?.['minlength']">Minimum 8 caracteres</div>
+            </div>
+
+            <mat-form-field>
+                <input required matInput  type="password" placeholder="Password" name="passwordVer" [(ngModel)]="passwordVer" #passwordVerControl="ngModel" minlength="8"/>
+            </mat-form-field>
+            <div *ngIf="passwordVerControl.touched && !passwordVerControl.valid">
+                <div *ngIf="passwordVerControl.errors?.['required']">This field is required</div>
+                <div *ngIf="passwordVerControl.errors?.['minlength']">Minimum 8 caracteres</div>
+            </div>
+
+            <div *ngIf="passwordVerControl.touched">
+                <div *ngIf="password != passwordVer">Passwords do not match</div>
+            </div>
+
+
+            <button type="submit" class="btn btn-secondary btn-lg">Submit</button>
+        </form>
+    </mat-card>
+</div>
