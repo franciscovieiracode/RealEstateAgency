@@ -1,3 +1,4 @@
+<app-header></app-header>
 <div fxLayoutAlign="center center" fxFlexFill>   
     <mat-card fxFlex="25">
         <h1 class="text-center">Login</h1>
@@ -18,7 +19,7 @@
                 <div *ngIf="passwordControl.errors?.['minlength']">Minimum 8 caracteres</div>
             </div>
 
-            <button type="submit" class="btn btn-secondary btn-lg">Submit</button>
+            <button type="submit" [disabled]="!emailControl.valid || !passwordControl.valid" class="btn btn-secondary btn-lg" >Submit</button>
         </form>
     </mat-card>
 </div>

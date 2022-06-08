@@ -3,9 +3,19 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const cors = require('cors');
+const mongoose = require('mongoose');
+
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+
+mongoose.Promise = global.Promise
+
+mongoose.connect('mongodb+srv://admin:admin@cluster0.9tbn1.mongodb.net/?retryWrites=true&w=majority', {useNewUrlParser: true,useUnifiedTopology: true })
+  .then(()=> console.log(' connected to DB!'))
+  .catch(()=> console.log(' error connecting to DB!'))
+
 
 var app = express();
 

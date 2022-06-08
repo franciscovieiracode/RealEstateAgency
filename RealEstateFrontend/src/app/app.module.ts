@@ -17,6 +17,11 @@ import { HeaderComponent } from './home-page/header/header.component';
 import { FooterComponent } from './home-page/footer/footer.component';
 import { HomeListComponent } from './home-page/home-list/home-list.component';
 import { SidebarComponent } from './home-page/sidebar/sidebar.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatButtonModule} from '@angular/material/button';
+import {MatDialogModule} from '@angular/material/dialog';
+import { AboutComponentComponent } from './home-page/header/about-component/about-component.component';
+
 
 
 
@@ -30,7 +35,8 @@ import { SidebarComponent } from './home-page/sidebar/sidebar.component';
     HeaderComponent,
     FooterComponent,
     HomeListComponent,
-    SidebarComponent
+    SidebarComponent,
+    AboutComponentComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +47,10 @@ import { SidebarComponent } from './home-page/sidebar/sidebar.component';
     MatInputModule,
     FlexLayoutModule,
     NgbModule,
-    FormsModule
+    FormsModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

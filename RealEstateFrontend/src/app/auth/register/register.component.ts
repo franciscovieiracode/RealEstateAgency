@@ -12,19 +12,21 @@ name: string;
 email: string;
 password: string;
 passwordVer: string;
+cellphone: string;
 
 constructor(private router: Router) { 
   this.name=""
   this.email="";
   this.password="";
   this.passwordVer="";
+  this.cellphone="";
 }
 
   ngOnInit(): void {
   }
 
   register(){
-    console.log(this.passwordVer);
+    console.log(this.password);
     
   }
 
