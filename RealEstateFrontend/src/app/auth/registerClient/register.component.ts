@@ -11,15 +11,15 @@ export class RegisterComponent implements OnInit {
 name: string;
 email: string;
 password: string;
-passwordVer: string;
 cellphone: string;
+role: string;
 
 constructor(private router: Router) { 
   this.name=""
   this.email="";
   this.password="";
-  this.passwordVer="";
   this.cellphone="";
+  this.role="client"
 }
 
   ngOnInit(): void {
@@ -28,6 +28,10 @@ constructor(private router: Router) {
   register(){
     console.log(this.password);
     
+  }
+
+  registerAgent(){
+    this.router.navigate(['/registerAgent'])
   }
 
 }

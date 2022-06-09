@@ -38,20 +38,12 @@
                 <div *ngIf="passwordControl.errors?.['required']">This field is required</div>
                 <div *ngIf="passwordControl.errors?.['minlength']">Minimum 8 caracteres</div>
                 <div *ngIf="passwordControl.errors?.['maxlength']">Maximum 20 caracteres</div>
-
             </div>
 
-            <mat-form-field>
-                <input required matInput  type="password" placeholder="Confirm Password" name="passwordVer" [(ngModel)]="passwordVer" #passwordVerControl="ngModel" minlength="8" maxlength="20"/>
-            </mat-form-field>
-            <div *ngIf="passwordVerControl.touched && !passwordVerControl.valid">
-                <div *ngIf="passwordVerControl.errors?.['required']">This field is required</div>
-                <div *ngIf="passwordVerControl.errors?.['minlength']">Minimum 8 caracteres</div>
-                <div *ngIf="passwordVerControl.errors?.['maxlength']">Maximum 20 caracteres</div>
-                <div *ngIf="passwordControl.value != passwordVerControl.value">Passwords do not match</div>
-            </div>
-
-            <button type="submit" class="btn btn-secondary btn-lg" [disabled]="!nameControl.valid || !emailControl.valid || !passwordControl.valid || !passwordVerControl.valid ||!cellphoneControl.valid">Submit</button>
+            <button type="submit" class="btn btn-secondary btn-lg" [disabled]="!nameControl.valid || !emailControl.valid || !passwordControl.valid ||!cellphoneControl.valid">Submit</button>
         </form>
+        <div class="d-flex justify-content-center">
+            <button mat-button color="warn" (click)="registerAgent()">Register as Real Estate Agent</button>
+        </div>
     </mat-card>
 </div>

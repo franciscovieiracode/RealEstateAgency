@@ -40,7 +40,7 @@ const userSchema = new mongoose.Schema({
         default: () =>{Date.now()}
     },
     updatedAt: Date,
-    favotireList: [realEstate]
+    //favoriteList: [realEstate]
 });
 
 module.exports = mongoose.model('User', userSchema);
