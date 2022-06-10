@@ -1,5 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthRestServiceService } from '../../services/auth-rest-service.service';
+
+
+
 
 @Component({
   selector: 'app-login',
@@ -11,7 +15,7 @@ export class LoginComponent implements OnInit {
   email: string;
   password: string;
 
-  constructor(private router: Router) { 
+  constructor(private router: Router, private authService: AuthRestServiceService) { 
     this.email="";
     this.password="";
   }
@@ -19,12 +23,21 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  login() {
-console.log(this.email);
-  this.router.navigate(['/']);
-
-
+  login(): void{
+    this.authService.login(this.email, this.password).subscribe((user : any)=>{
+      if (user && user.auth == true) {
+        localStorage.setItem('currentUser', JSON.stringify(user.token));
+        this.router.navigate(['/']);
+        console.log(user);
+        alert(user.message)
+      } else {
+        alert(user.message);
+      }
+    })
   }
+
+
+
 
 
 }

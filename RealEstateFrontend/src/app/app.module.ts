@@ -22,6 +22,8 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatDialogModule} from '@angular/material/dialog';
 import { AboutComponentComponent } from './home-page/header/about-component/about-component.component';
 import { RegisterAgentComponent } from './auth/register-agent/register-agent.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 
@@ -51,7 +53,8 @@ import { RegisterAgentComponent } from './auth/register-agent/register-agent.com
     FormsModule,
     MatToolbarModule,
     MatButtonModule,
-    MatDialogModule
+    MatDialogModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

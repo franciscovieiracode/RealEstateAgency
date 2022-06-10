@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthRestServiceService } from '../../services/auth-rest-service.service';
+
 
 @Component({
   selector: 'app-register',
@@ -14,7 +16,7 @@ password: string;
 cellphone: string;
 role: string;
 
-constructor(private router: Router) { 
+constructor(private router: Router, private authService: AuthRestServiceService) { 
   this.name=""
   this.email="";
   this.password="";
@@ -25,10 +27,18 @@ constructor(private router: Router) {
   ngOnInit(): void {
   }
 
-  register(){
-    console.log(this.password);
+  register(): void{
     
+
+    this.authService.register(this.name,this.email,this.cellphone,this.password).subscribe((user : any)=>{
+      if (user && user.token) {
+        localStorage.setItem('currentUser', JSON.stringify(user));
+        console.log(user);
+        this.router.navigate(['/']);
+      } 
+    })
   }
+
 
   registerAgent(){
     this.router.navigate(['/registerAgent'])

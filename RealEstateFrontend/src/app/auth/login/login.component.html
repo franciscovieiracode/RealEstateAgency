@@ -20,6 +20,7 @@
             </div>
 
             <button type="submit" [disabled]="!emailControl.valid || !passwordControl.valid" class="btn btn-secondary btn-lg" >Submit</button>
+            <div *ngIf="">Wrong credentials</div>
         </form>
     </mat-card>
 </div>

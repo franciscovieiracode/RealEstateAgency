@@ -3,11 +3,32 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var bodyParser = require('body-parser')
+const cors = require('cors');
+const mongoose = require('mongoose');
+const userName ='admin'
+const password = 'admin'
+
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
+const authRouter = require('./routes/auth');
+
+
+
+mongoose.Promise = global.Promise
+
+mongoose.connect(`mongodb+srv://${userName}:${password}@cluster0.9tbn1.mongodb.net/?retryWrites=true&w=majority`, {useNewUrlParser: true,useUnifiedTopology: true })
+.then(() => console.log('MongoDB Connection succeded'))
+.catch((error) => console.log('Error connecting to MongoDB'));
+
+
 var app = express();
+app.use(cors())
+app.use(bodyParser.json())
+app.use('/api/v1/auth', authRouter);
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
