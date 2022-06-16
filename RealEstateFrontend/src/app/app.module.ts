@@ -22,7 +22,17 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatDialogModule} from '@angular/material/dialog';
 import { AboutComponentComponent } from './home-page/header/about-component/about-component.component';
 import { RegisterAgentComponent } from './auth/register-agent/register-agent.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { EditProfileComponent } from './profile/edit-profile/edit-profile.component';
+import { LoginStatusComponent } from './auth/login/login-status/login-status.component';
+import {AuthGuardGuard} from '../app/guards/auth-guard.guard';
+import { ShowProfileComponent } from './profile/show-profile/show-profile.component'
+import {MatTableModule} from '@angular/material/table';
+import { AuthInterceptor } from '../app/interceptors/auth-interceptor';
+
+
+
+
 
 
 
@@ -39,7 +49,9 @@ import { HttpClientModule } from '@angular/common/http';
     SidebarComponent,
     AboutComponentComponent,
     RegisterAgentComponent,
-
+    EditProfileComponent,
+    LoginStatusComponent,
+    ShowProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,9 +66,10 @@ import { HttpClientModule } from '@angular/common/http';
     MatToolbarModule,
     MatButtonModule,
     MatDialogModule,
-    HttpClientModule
+    HttpClientModule,
+    MatTableModule
   ],
-  providers: [],
+  providers: [LoginStatusComponent,AuthGuardGuard,{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi:true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

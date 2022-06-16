@@ -40,6 +40,7 @@
                 <div *ngIf="passwordControl.errors?.['maxlength']">Maximum 20 caracteres</div>
 
             </div>
+            <div *ngIf="errorMessage">{{errorMessage}}</div>
             <button type="submit" class="btn btn-secondary btn-lg" [disabled]="!nameControl.valid || !emailControl.valid || !passwordControl.valid ||!cellphoneControl.valid">Submit</button>
             <div class="d-flex justify-content-center">
                 <button mat-button color="warn" (click)="registerAgent()">Register as Client</button>

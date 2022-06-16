@@ -30,7 +30,6 @@ const userSchema = new mongoose.Schema({
         type: String,
         enum: ['client', 'agent'],
         default: 'client',
-        required: true
     },
     budget: Number,
     locationPreference: [String],

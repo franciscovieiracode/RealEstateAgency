@@ -1,9 +1,17 @@
 <mat-toolbar color="primary" class="navbar">
-    <div>ESTG - Real Estate</div>
-    <div>
+    <div>ESTG - Real Estate
         <button mat-button (click)="home()">Home</button>
         <button mat-button (click)="openDialog()">About</button>
+    </div>
+    <div>
+    <div *ngIf="status.checkIsLoggedIn() ==false">
         <button mat-button (click)="login()">Login</button>
         <button mat-button (click)="register()">Register</button>
+    </div>
+    <div *ngIf="status.checkIsLoggedIn() ==true">
+        <button mat-button (click)="showProfile()">Profile</button>
+        <button mat-button>Check favorites list</button>
+        <button mat-button (click)="logout()">Logout</button>
+    </div>
     </div>
 </mat-toolbar>

@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {MatDialog, MatDialogModule} from '@angular/material/dialog';
 import { AboutComponentComponent } from './about-component/about-component.component';
+import { AuthRestServiceService } from 'src/app/services/auth-rest-service.service';
+import { LoginStatusComponent } from 'src/app/auth/login/login-status/login-status.component';
+
 
 
 @Component({
@@ -11,7 +14,7 @@ import { AboutComponentComponent } from './about-component/about-component.compo
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private router: Router, public dialog: MatDialog) { }
+  constructor(private router: Router, public dialog: MatDialog, private authService:AuthRestServiceService, public status: LoginStatusComponent) { }
 
   ngOnInit(): void {
   }
@@ -30,5 +33,16 @@ export class HeaderComponent implements OnInit {
 
   openDialog(){
     this.dialog.open(AboutComponentComponent)
+  }
+
+  logout(){
+    this.authService.logout();
+  }
+  editProfile(){
+    this.router.navigate(['editprofile'])
+  }
+
+  showProfile(){
+    this.router.navigate(['/showprofile'])
   }
 }

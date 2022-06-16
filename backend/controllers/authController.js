@@ -17,7 +17,7 @@ authController.login = function(req, res){
 
         // if user is found and password is valid
         // create a token
-        var token = jwt.sign({ id: user._id }, config.secret, {
+        var token = jwt.sign({ id: user._id, role: user.role }, config.secret, {
         expiresIn: 86400 // expires in 24 hours
         });
 
@@ -43,13 +43,56 @@ authController.register = function(req, res){
 
       // if user is registered without errors
       // create a token
-      var token = jwt.sign({ id: user._id }, config.secret, {
+      var token = jwt.sign({ id: user._id, role:user.role }, config.secret, {
       expiresIn: 86400 // expires in 24 hours
       });
 
       res.status(200).send({ 'auth': true, 'token': token });
   });
 }
+
+authController.checkTokenValidity = function(req, res){
+
+    return res.status(200).send('Valid')
+  }
+
+
+authController.verifyTokenAgent = function(req, res, next) {
+
+  // check header or url parameters or post parameters for token
+  var token = req.headers['x-access-token'];
+  if (!token) 
+    return res.status(403).send({ auth: false, message: 'No token provided.' });
+
+  // verifies secret and checks exp
+  jwt.verify(token, config.secret, function(err, decoded) {      
+    if (err || decoded.role !== 'agent') 
+      return res.status(500).send({ auth: false, message: 'Failed to authenticate token or not Admin' });    
+    // if everything is good, save to request for use in other routes
+    req.userId = decoded.id;
+    next();
+  });
+
+}
+authController.verifyToken = function(req, res, next) {
+
+  // check header or url parameters or post parameters for token
+  var token = req.headers['x-access-token'];
+  if (!token) 
+    return res.status(403).send({ auth: false, message: 'No token provided.' });
+  // verifies secret and checks exp
+  jwt.verify(token, config.secret, function(err, decoded) {      
+    if (err) 
+      return res.status(500).send({ auth: false, message: 'Failed to authenticate token.' });    
+
+     
+    // if everything is good, save to request for use in other routes
+    req.userId = decoded.id;
+    next();
+  });
+
+}
+
 
 
 

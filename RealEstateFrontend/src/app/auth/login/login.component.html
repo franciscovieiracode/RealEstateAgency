@@ -2,7 +2,7 @@
 <div fxLayoutAlign="center center" fxFlexFill>   
     <mat-card fxFlex="25">
         <h1 class="text-center">Login</h1>
-        <form fxLayout="column" (submit)="login()">
+        <form #formData="ngForm" fxLayout="column" (submit)="login()">
             <mat-form-field>
                 <input required matInput  type="email" placeholder="Email" name="email" [(ngModel)]="email" #emailControl="ngModel" ngModel [email]="true"/>
             </mat-form-field>
@@ -18,9 +18,8 @@
                 <div *ngIf="passwordControl.errors?.['required']">This field is required</div>
                 <div *ngIf="passwordControl.errors?.['minlength']">Minimum 8 caracteres</div>
             </div>
-
+            <div *ngIf="errorMessage">{{errorMessage}}</div>
             <button type="submit" [disabled]="!emailControl.valid || !passwordControl.valid" class="btn btn-secondary btn-lg" >Submit</button>
-            <div *ngIf="">Wrong credentials</div>
         </form>
     </mat-card>
 </div>

@@ -39,7 +39,8 @@
                 <div *ngIf="passwordControl.errors?.['minlength']">Minimum 8 caracteres</div>
                 <div *ngIf="passwordControl.errors?.['maxlength']">Maximum 20 caracteres</div>
             </div>
-
+            <div *ngIf="errorMessage">{{errorMessage}}</div>
+            
             <button type="submit" class="btn btn-secondary btn-lg" [disabled]="!nameControl.valid || !emailControl.valid || !passwordControl.valid ||!cellphoneControl.valid">Submit</button>
         </form>
         <div class="d-flex justify-content-center">

@@ -14,6 +14,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 const authRouter = require('./routes/auth');
+const profileRouter = require('./routes/profile')
 
 
 
@@ -28,6 +29,7 @@ var app = express();
 app.use(cors())
 app.use(bodyParser.json())
 app.use('/api/v1/auth', authRouter);
+app.use('/api/v1/profile', profileRouter)
 
 
 // view engine setup
