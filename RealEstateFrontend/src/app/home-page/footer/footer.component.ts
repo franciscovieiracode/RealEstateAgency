@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {MatDialog, MatDialogModule} from '@angular/material/dialog';
+import { TermsServiceComponent } from './terms-service/terms-service.component';
+
 
 @Component({
   selector: 'app-footer',
@@ -7,9 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
 
+  termsService(){
+    this.dialog.open(TermsServiceComponent)
+  }
 }

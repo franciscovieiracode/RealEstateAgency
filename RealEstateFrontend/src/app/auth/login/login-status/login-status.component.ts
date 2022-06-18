@@ -24,4 +24,8 @@ export class LoginStatusComponent {
     return isLoggedIn;
   }
 
+  checkAgent(){
+    
+  }
+
 }

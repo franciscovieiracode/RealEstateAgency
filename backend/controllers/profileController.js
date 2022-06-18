@@ -1,8 +1,5 @@
 const User = require('../models/user');
-const jwt = require('jsonwebtoken');
-const bcrypt = require('bcryptjs');
-const config = require('../jwt_secret/config');
-const authController = require('./authController');
+
 
 var profileController = {};
 
@@ -26,7 +23,18 @@ profileController.deleteProfile = function(req,res,next){
         res.json(deletedUser);
     }
 })
+}
 
+profileController.editProfile = function(req,res,next){
+
+    User.findByIdAndUpdate(req.userId, req.body, (err, editedUser)=>{
+        if (err){
+            console.log('Error saving new data');
+            next(err);
+        } else {
+            res.json(editedUser);
+        }
+    } )
 }
 
 

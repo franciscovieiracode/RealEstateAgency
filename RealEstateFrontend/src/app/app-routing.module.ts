@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterAgentComponent } from './auth/register-agent/register-agent.component';
@@ -7,6 +7,9 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { EditProfileComponent } from './profile/edit-profile/edit-profile.component';
 import {AuthGuardGuard} from '../app/guards/auth-guard.guard'
 import { ShowProfileComponent } from './profile/show-profile/show-profile.component';
+import { AddRealEstateComponent } from './real-estate/add-real-estate/add-real-estate.component';
+import { AgentGuardGuard } from './guards/agent-guard.guard';
+import { FileUploadComponent } from './real-estate/add-real-estate/file-upload/file-upload.component';
 
 
 const routes: Routes = [
@@ -16,6 +19,7 @@ const routes: Routes = [
   {path:'registerAgent', component:RegisterAgentComponent},
   {path: 'editprofile', component: EditProfileComponent, canActivate:[AuthGuardGuard]},
   {path: 'showprofile', component: ShowProfileComponent,canActivate:[AuthGuardGuard]},
+  {path: 'addrealestate', component: AddRealEstateComponent,canActivate:[AuthGuardGuard, AgentGuardGuard]},
   {path: '**', redirectTo: '/'}
 ];
 

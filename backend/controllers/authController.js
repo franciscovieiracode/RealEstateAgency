@@ -51,12 +51,6 @@ authController.register = function(req, res){
   });
 }
 
-authController.checkTokenValidity = function(req, res){
-
-    return res.status(200).send('Valid')
-  }
-
-
 authController.verifyTokenAgent = function(req, res, next) {
 
   // check header or url parameters or post parameters for token
@@ -67,7 +61,7 @@ authController.verifyTokenAgent = function(req, res, next) {
   // verifies secret and checks exp
   jwt.verify(token, config.secret, function(err, decoded) {      
     if (err || decoded.role !== 'agent') 
-      return res.status(500).send({ auth: false, message: 'Failed to authenticate token or not Admin' });    
+      return res.status(500).send({ auth: false, message: 'Failed to authenticate token or not Agent' });    
     // if everything is good, save to request for use in other routes
     req.userId = decoded.id;
     next();

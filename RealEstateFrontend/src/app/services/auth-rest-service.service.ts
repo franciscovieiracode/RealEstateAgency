@@ -2,7 +2,6 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, catchError, throwError  } from 'rxjs';
-import { LoginStatusComponent } from '../auth/login/login-status/login-status.component';
 
 const endpoint = 'http://localhost:3000/api/v1/auth/';
 const httpOptions = {

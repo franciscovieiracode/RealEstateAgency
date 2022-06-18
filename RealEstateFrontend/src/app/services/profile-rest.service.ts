@@ -28,8 +28,18 @@ export class ProfileRestService {
     .pipe(catchError(this.handleError));
   }
 
+  editProfile(name: string, email: string, cellphone: string, password: string, localPreferences:string[]): Observable<any>{
+    return this.http.put<any>(endpoint+"editprofile/:id", new EditProfileModel(name,email,cellphone,password,localPreferences), httpOptions)
+    .pipe(catchError(this.handleError))
+  }
+
   private handleError(error: HttpErrorResponse){
     return throwError(error.status)
 }
 }
 
+export class EditProfileModel{
+
+  constructor(public name:string, public email:string, public cellphone:string, public password:string, public localPreferences:string[]){}
+
+}

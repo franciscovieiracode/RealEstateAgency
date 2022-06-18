@@ -29,11 +29,12 @@ import {AuthGuardGuard} from '../app/guards/auth-guard.guard';
 import { ShowProfileComponent } from './profile/show-profile/show-profile.component'
 import {MatTableModule} from '@angular/material/table';
 import { AuthInterceptor } from '../app/interceptors/auth-interceptor';
-
-
-
-
-
+import { TermsServiceComponent } from './home-page/footer/terms-service/terms-service.component';
+import { AddRealEstateComponent } from './real-estate/add-real-estate/add-real-estate.component';
+import { EditRealEstateComponent } from './real-estate/edit-real-estate/edit-real-estate.component';
+import {MatIconModule} from '@angular/material/icon';
+import { FileUploadComponent } from './real-estate/add-real-estate/file-upload/file-upload.component';
+import { ReactiveFormsModule } from "@angular/forms";
 
 
 
@@ -52,6 +53,10 @@ import { AuthInterceptor } from '../app/interceptors/auth-interceptor';
     EditProfileComponent,
     LoginStatusComponent,
     ShowProfileComponent,
+    TermsServiceComponent,
+    AddRealEstateComponent,
+    EditRealEstateComponent,
+    FileUploadComponent,
   ],
   imports: [
     BrowserModule,
@@ -67,8 +72,10 @@ import { AuthInterceptor } from '../app/interceptors/auth-interceptor';
     MatButtonModule,
     MatDialogModule,
     HttpClientModule,
-    MatTableModule
-  ],
+    MatTableModule,
+    MatIconModule,
+    ReactiveFormsModule
+    ],
   providers: [LoginStatusComponent,AuthGuardGuard,{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi:true}],
   bootstrap: [AppComponent]
 })

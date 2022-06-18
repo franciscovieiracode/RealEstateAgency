@@ -45,4 +45,8 @@ export class HeaderComponent implements OnInit {
   showProfile(){
     this.router.navigate(['/showprofile'])
   }
+
+  addRealEstate(){
+    this.router.navigate(['/addrealestate'])
+  }
 }

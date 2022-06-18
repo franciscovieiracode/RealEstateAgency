@@ -8,11 +8,6 @@ const descriptionSchema = new mongoose.Schema({
     sqFeet:{
         type: Number,
         required: true,
-    },
-    condition:{
-        type: String,
-        enum: ['construction', 'done'],
-        required: true
     }
 });
 
@@ -51,6 +46,7 @@ const realEstateSchema = new mongoose.Schema({
         maxlength: 14,
         required: true
     },
+    image_url:String,
     publishState:{
         type: String,
         enum: ['published', 'notPublished'],

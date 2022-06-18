@@ -15,6 +15,7 @@ var usersRouter = require('./routes/users');
 
 const authRouter = require('./routes/auth');
 const profileRouter = require('./routes/profile')
+const realEstateRouter = require('./routes/realEstate')
 
 
 
@@ -30,6 +31,7 @@ app.use(cors())
 app.use(bodyParser.json())
 app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/profile', profileRouter)
+app.use('/api/v1/realestate', realEstateRouter)
 
 
 // view engine setup
