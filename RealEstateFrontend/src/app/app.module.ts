@@ -35,6 +35,14 @@ import { EditRealEstateComponent } from './real-estate/edit-real-estate/edit-rea
 import {MatIconModule} from '@angular/material/icon';
 import { FileUploadComponent } from './real-estate/add-real-estate/file-upload/file-upload.component';
 import { ReactiveFormsModule } from "@angular/forms";
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatListModule} from '@angular/material/list';
+import { DetailedHomeDialogComponent } from './home-page/home-list/detailed-home-dialog/detailed-home-dialog.component';
+import {MatRadioModule} from '@angular/material/radio';
+import { AddRsToFavoriteListComponent } from './profile/add-rs-to-favorite-list/add-rs-to-favorite-list.component';
+
+
+
 
 
 
@@ -57,6 +65,8 @@ import { ReactiveFormsModule } from "@angular/forms";
     AddRealEstateComponent,
     EditRealEstateComponent,
     FileUploadComponent,
+    DetailedHomeDialogComponent,
+    AddRsToFavoriteListComponent,
   ],
   imports: [
     BrowserModule,
@@ -74,7 +84,10 @@ import { ReactiveFormsModule } from "@angular/forms";
     HttpClientModule,
     MatTableModule,
     MatIconModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSidenavModule,
+    MatListModule,
+    MatRadioModule
     ],
   providers: [LoginStatusComponent,AuthGuardGuard,{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi:true}],
   bootstrap: [AppComponent]

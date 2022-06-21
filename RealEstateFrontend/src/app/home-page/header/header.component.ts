@@ -49,4 +49,8 @@ export class HeaderComponent implements OnInit {
   addRealEstate(){
     this.router.navigate(['/addrealestate'])
   }
+
+  addToFavoriteList(){
+    this.router.navigate(['/favoriteList'])
+  }
 }

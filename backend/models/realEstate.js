@@ -11,7 +11,6 @@ const descriptionSchema = new mongoose.Schema({
     }
 });
 
-
 const addressSchema = new mongoose.Schema({
     district:{
         type: String,
@@ -31,7 +30,6 @@ const addressSchema = new mongoose.Schema({
     }
 });
 
-
 const realEstateSchema = new mongoose.Schema({
     description: descriptionSchema,
     location: addressSchema,
@@ -47,6 +45,11 @@ const realEstateSchema = new mongoose.Schema({
         required: true
     },
     image_url:String,
+    forSale:{
+        type: String,
+        enum: ['for sale', 'sold'],
+        default: 'for sale'
+    },
     publishState:{
         type: String,
         enum: ['published', 'notPublished'],

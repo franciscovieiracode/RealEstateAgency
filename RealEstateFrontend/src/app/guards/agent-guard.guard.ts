@@ -18,7 +18,7 @@ export class AgentGuardGuard implements CanActivate {
       
       this.profileService.showProfile().subscribe((user:any) =>{
         if(user && user.role !='agent'){
-          alert("Cant add property because you are not a real estate agent")
+          alert("Cant add/edit property because you are not a real estate agent")
           this.router.navigate(['/'])
           return false;
         }

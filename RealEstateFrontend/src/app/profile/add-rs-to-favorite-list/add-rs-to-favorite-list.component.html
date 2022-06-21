@@ -1,0 +1,36 @@
+<app-header></app-header>
+<div *ngFor="let real of user, let i = index">
+    <div class="grid-container">
+        <div class="grid-item">
+            <mat-card class="text-center">
+                <mat-card-content>
+                    <div>Typology : {{real.description.typology}}</div>
+                </mat-card-content>
+                <mat-card-content>
+                    <div>Square Feet : {{real.description.sqFeet}} &#13217;</div>
+                </mat-card-content>
+                <mat-card-content>
+                    <div>Full Address: {{real.location.district}}, {{real.location.city}} {{real.location.street}}
+                        {{real.location.cp}} </div>
+                </mat-card-content>
+                <mat-card-content>
+                    <div>Agent Cellphone: {{real.agentCellphone}} </div>
+                </mat-card-content>
+                <mat-card-content>
+                    <div>Neighborhood Description: {{real.neighborhoodDescription}}</div>
+                </mat-card-content>
+                <mat-card-content>
+                    <div>Price: {{real.price}}&euro;</div>
+                </mat-card-content>
+                <div>
+                    <img src="{{real.image_url}}" class="image">
+                </div>
+                <mat-card-content >
+                    <button mat-button color="warn" (click)="removeRealEstateFromFavorites(i)">Remove Property from favorites</button>
+                  </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>

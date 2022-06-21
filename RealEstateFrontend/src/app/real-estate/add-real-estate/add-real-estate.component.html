@@ -1,67 +1,75 @@
 <app-header></app-header>
 <div fxLayoutAlign="center center" fxFlexFill>   
-    <mat-card fxFlex="25">
-        <h2 class="text-center">Register Real estate</h2>
-        <form fxLayout="column" (submit)="addRealEstate()">
+  <mat-card fxFlex="25">
+      <h2 class="text-center">Register Real estate</h2>
+      <form fxLayout="column" (submit)="addRealEstate()">
 
-            <mat-form-field>
-                <input required matInput  type="text" placeholder="Typology, Ex: T1,T2" name="typology" [(ngModel)]="typology" #typologyControl="ngModel"/>
-            </mat-form-field>
-            <div *ngIf="typologyControl.touched && !typologyControl.valid">
-                <div *ngIf="typologyControl.errors?.['required']">This field is required</div>
-            </div>
+          <mat-form-field>
+              <input required matInput  type="text" placeholder="Typology, Ex: T1,T2" name="typology" [(ngModel)]="typology" #typologyControl="ngModel"/>
+          </mat-form-field>
+          <div *ngIf="typologyControl.touched && !typologyControl.valid">
+              <div *ngIf="typologyControl.errors?.['required']">This field is required</div>
+          </div>
 
-            <mat-form-field>
-                <input required min="1" matInput  type="number" placeholder="Square Feet" name="sqFeet" [(ngModel)]="sqFeet" #sqFeetControl="ngModel"/>
-            </mat-form-field>
-            <div *ngIf="sqFeetControl.touched && !sqFeetControl.valid">
-                <div *ngIf="sqFeetControl.errors?.['required']">This field is required</div>
-                <div *ngIf="sqFeetControl.errors?.['min']">Sq. Feet has to be positive</div>
-            </div>
+          <mat-form-field>
+              <input required min="1" matInput  type="number" placeholder="Square Feet" name="sqFeet" [(ngModel)]="sqFeet" #sqFeetControl="ngModel"/>
+          </mat-form-field>
+          <div *ngIf="sqFeetControl.touched && !sqFeetControl.valid">
+              <div *ngIf="sqFeetControl.errors?.['required']">This field is required</div>
+              <div *ngIf="sqFeetControl.errors?.['min']">Sq. Feet has to be positive</div>
+          </div>
 
-            <mat-form-field>
-                <input required matInput  type="text" placeholder="District" name="district" [(ngModel)]="district" #districtControl="ngModel"/>
-            </mat-form-field>
-            <div *ngIf="districtControl.touched && !districtControl.valid">
-                <div *ngIf="districtControl.errors?.['required']">This field is required</div>
-            </div>
+          <mat-form-field>
+              <input required matInput  type="text" placeholder="District" name="district" [(ngModel)]="district" #districtControl="ngModel"/>
+          </mat-form-field>
+          <div *ngIf="districtControl.touched && !districtControl.valid">
+              <div *ngIf="districtControl.errors?.['required']">This field is required</div>
+          </div>
 
-            <mat-form-field>
-                <input required matInput  type="text" placeholder="City" name="city" [(ngModel)]="city" #cityControl="ngModel"/>
-            </mat-form-field>
-            <div *ngIf="cityControl.touched && !cityControl.valid">
-                <div *ngIf="districtControl.errors?.['required']">This field is required</div>
-            </div>
-            
-            <mat-form-field>
-                <input required matInput  type="text" placeholder="Street" name="street" [(ngModel)]="street" #streetControl="ngModel"/>
-            </mat-form-field>
-            <div *ngIf="streetControl.touched && !streetControl.valid">
-                <div *ngIf="districtControl.errors?.['required']">This field is required</div>
-            </div>
+          <mat-form-field>
+              <input required matInput  type="text" placeholder="City" name="city" [(ngModel)]="city" #cityControl="ngModel"/>
+          </mat-form-field>
+          <div *ngIf="cityControl.touched && !cityControl.valid">
+              <div *ngIf="districtControl.errors?.['required']">This field is required</div>
+          </div>
+          
+          <mat-form-field>
+              <input required matInput  type="text" placeholder="Street" name="street" [(ngModel)]="street" #streetControl="ngModel"/>
+          </mat-form-field>
+          <div *ngIf="streetControl.touched && !streetControl.valid">
+              <div *ngIf="districtControl.errors?.['required']">This field is required</div>
+          </div>
 
-            <mat-form-field>
-                <input required matInput  type="text" placeholder="CP" name="cp" [(ngModel)]="cp" #cpControl="ngModel"/>
-            </mat-form-field>
-            <div *ngIf="cpControl.touched && !cpControl.valid">
-                <div *ngIf="cpControl.errors?.['required']">This field is required</div>
-            </div>
+          <mat-form-field>
+              <input required matInput  type="text" placeholder="CP" name="cp" [(ngModel)]="cp" #cpControl="ngModel"/>
+          </mat-form-field>
+          <div *ngIf="cpControl.touched && !cpControl.valid">
+              <div *ngIf="cpControl.errors?.['required']">This field is required</div>
+          </div>
 
-            <mat-form-field>
-                <input required maxlength="100" matInput type="text" placeholder="Neighborhood Desciption" name="neighborhoodDescription" [(ngModel)]="neighborhoodDescription" #neighborhoodDescriptionControl="ngModel"/>
-            </mat-form-field>
-            <div *ngIf="cpControl.touched && !cpControl.valid">
-                <div *ngIf="neighborhoodDescriptionControl.errors?.['required']">This field is required</div>
-                <div *ngIf="neighborhoodDescriptionControl.errors?.['maxlength']">Maximum size is 100 </div>
-            </div>
+          <mat-form-field>
+              <input required maxlength="100" matInput type="text" placeholder="Neighborhood Desciption" name="neighborhoodDescription" [(ngModel)]="neighborhoodDescription" #neighborhoodDescriptionControl="ngModel"/>
+          </mat-form-field>
+          <div *ngIf="cpControl.touched && !cpControl.valid">
+              <div *ngIf="neighborhoodDescriptionControl.errors?.['required']">This field is required</div>
+              <div *ngIf="neighborhoodDescriptionControl.errors?.['maxlength']">Maximum size is 100 </div>
+          </div>
 
-            <app-file-upload></app-file-upload>
-
-            <div *ngIf="errorMessage">{{errorMessage}}</div>
-            
-            <button type="submit" class="btn btn-secondary btn-lg" [disabled]="!typologyControl.valid || !sqFeetControl.valid || !districtControl.valid || !cityControl.valid 
-            || !streetControl.valid || !cpControl.valid">Submit</button>
-        </form>
-    </mat-card>
+          <mat-form-field>
+            <input required matInput type="number" placeholder="Price" name="price" [(ngModel)]="price" #priceControl="ngModel"/>
+        </mat-form-field>
+        <div *ngIf="cpControl.touched && !cpControl.valid">
+            <div *ngIf="neighborhoodDescriptionControl.errors?.['required']">This field is required</div>
+            <div *ngIf="neighborhoodDescriptionControl.errors?.['maxlength']">Maximum size is 100 </div>
+        </div>
+ 
+        <app-file-upload></app-file-upload>
+        
+          <div *ngIf="errorMessage">{{errorMessage}}</div>
+          
+          <button type="submit" class="btn btn-secondary btn-lg" [disabled]="!typologyControl.valid || !sqFeetControl.valid || !districtControl.valid || !cityControl.valid 
+          || !streetControl.valid || !cpControl.valid">Submit</button>
+      </form>
+  </mat-card>
 </div>
 <app-footer></app-footer>

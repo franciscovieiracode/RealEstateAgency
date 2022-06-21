@@ -33,6 +33,15 @@ export class ProfileRestService {
     .pipe(catchError(this.handleError))
   }
 
+  addToFavoritesList(user: any): Observable<any>{
+    return this.http.put<any>(endpoint+"addfavorite/:id", new AddToProfileList(user), httpOptions)
+    .pipe(catchError(this.handleError))
+  }
+
+  removeFromFavorites(real:any): Observable<any>{
+    return this.http.put<any>(endpoint+"removefavorite/:id", new RemoveFromProfileList(real), httpOptions)
+  }
+
   private handleError(error: HttpErrorResponse){
     return throwError(error.status)
 }
@@ -41,5 +50,16 @@ export class ProfileRestService {
 export class EditProfileModel{
 
   constructor(public name:string, public email:string, public cellphone:string, public password:string, public localPreferences:string[]){}
+
+}
+export class AddToProfileList{
+
+  constructor(public user:any){}
+
+}
+
+export class RemoveFromProfileList{
+
+  constructor(public real:any){}
 
 }

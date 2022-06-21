@@ -1,0 +1,33 @@
+<h2 class="text-center p-4">Detailed info about the property</h2>
+  
+
+<div *ngIf="status.checkIsLoggedIn() ==true" fxLayoutAlign="center center">
+<mat-card *ngIf="real" class="text-center">
+  <mat-card-content >
+    <div>Typology : {{real.description.typology}}</div>
+  </mat-card-content>
+  <mat-card-content >
+    <div>Square Feet : {{real.description.sqFeet}} &#13217;</div>
+</mat-card-content>
+<mat-card-content >
+  <div>Full Address: {{real.location.district}}, {{real.location.city}} {{real.location.street}} {{real.location.cp}} </div>
+</mat-card-content>
+<mat-card-content >
+  <div>Agent Cellphone: {{real.agentCellphone}} </div>
+</mat-card-content>
+<mat-card-content >
+  <div>Neighborhood Description: {{real.neighborhoodDescription}}</div>
+</mat-card-content>
+<mat-card-content >
+    <div>Price: {{real.price}}&euro;</div>
+  </mat-card-content>
+<div>
+    <img src="{{real.image_url}}" class="image">
+</div>
+</mat-card>
+
+</div>
+<div *ngIf="status.checkIsLoggedIn() ==false">
+  <div>Not enough permissions, login first</div>
+</div>
+

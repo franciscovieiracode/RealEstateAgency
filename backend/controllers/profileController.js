@@ -37,6 +37,33 @@ profileController.editProfile = function(req,res,next){
     } )
 }
 
+profileController.addFavoriteToList = function(req,res,next){
+    
+    User.findOneAndUpdate(
+       { _id: req.userId }, 
+       { $push: { favoriteList: req.body.user  } },
+      function (error, success) {
+            if (error) {
+                console.log(error);
+            } else {
+                res.json(success);
+            }
+        });
+}
+
+profileController.removeFavoriteToList = function(req,res,next){
+
+    User.findOneAndUpdate(
+        { _id: req.userId }, 
+        { favoriteList: req.body.real }, 
+       function (error, success) {
+             if (error) {
+                 console.log(error);
+             } else {
+                 res.json(success);
+             }
+         });
+}
 
 
 module.exports = profileController;

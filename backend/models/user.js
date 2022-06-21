@@ -39,7 +39,7 @@ const userSchema = new mongoose.Schema({
     },
     updatedAt: Date,
     favoriteList: [{
-        type: mongoose.Schema.Types.ObjectId, 
+        type: mongoose.Schema.Types.Mixed, 
         ref: 'RealEstate'  
     }]
 });
