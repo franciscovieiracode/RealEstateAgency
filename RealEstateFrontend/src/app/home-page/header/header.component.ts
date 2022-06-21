@@ -53,4 +53,7 @@ export class HeaderComponent implements OnInit {
   addToFavoriteList(){
     this.router.navigate(['/favoriteList'])
   }
+  checkFullList(){
+    this.router.navigate(['showallrealestate'])
+  }
 }

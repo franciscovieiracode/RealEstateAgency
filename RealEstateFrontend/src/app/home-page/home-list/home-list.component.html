@@ -1,4 +1,7 @@
-<div *ngFor="let real of realestate">
+<mat-form-field class="inputSearch">
+    <input required matInput type="text" placeholder="Search here by typology,city,m2" name="search" [(ngModel)]="search" #searchControl="ngModel"/>
+</mat-form-field>
+<div *ngFor="let real of realestate | searchPipe:search">
     <div class="grid-container" >
         <div *ngIf="real.publishState == 'published'">
         <div class="grid-item">
@@ -10,7 +13,6 @@
                 <mat-card-content *ngIf="status.checkIsLoggedIn() ==true">
                     <button mat-button color="warn" (click)="checkFullInfo(real)">Detailed info about the property</button>
                     <button mat-button color="warn" (click)="addToFavorite(real)">Add to favorites list</button>
-                    <button mat-button (click)="editRealEstate(real._id)">Edit Property</button>
                   </mat-card-content>
                   <mat-card-content *ngIf="status.checkIsLoggedIn() ==false">
                     <button mat-button color="warn" (click)="redirectToLogin()">Login to further information</button>

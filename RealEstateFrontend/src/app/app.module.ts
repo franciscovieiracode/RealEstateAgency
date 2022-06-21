@@ -16,7 +16,6 @@ import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './home-page/header/header.component';
 import { FooterComponent } from './home-page/footer/footer.component';
 import { HomeListComponent } from './home-page/home-list/home-list.component';
-import { SidebarComponent } from './home-page/sidebar/sidebar.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDialogModule} from '@angular/material/dialog';
@@ -40,6 +39,8 @@ import {MatListModule} from '@angular/material/list';
 import { DetailedHomeDialogComponent } from './home-page/home-list/detailed-home-dialog/detailed-home-dialog.component';
 import {MatRadioModule} from '@angular/material/radio';
 import { AddRsToFavoriteListComponent } from './profile/add-rs-to-favorite-list/add-rs-to-favorite-list.component';
+import { SearchPipePipe } from './home-page/home-list/search-pipe.pipe';
+import { ShowAllRealEstateComponent } from './real-estate/show-all-real-estate/show-all-real-estate.component';
 
 
 
@@ -55,7 +56,6 @@ import { AddRsToFavoriteListComponent } from './profile/add-rs-to-favorite-list/
     HeaderComponent,
     FooterComponent,
     HomeListComponent,
-    SidebarComponent,
     AboutComponentComponent,
     RegisterAgentComponent,
     EditProfileComponent,
@@ -67,6 +67,8 @@ import { AddRsToFavoriteListComponent } from './profile/add-rs-to-favorite-list/
     FileUploadComponent,
     DetailedHomeDialogComponent,
     AddRsToFavoriteListComponent,
+    SearchPipePipe,
+    ShowAllRealEstateComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,20 @@
+<app-header></app-header>
+
+<mat-form-field class="inputSearch">
+    <input required matInput  type="text" placeholder="Search here by typology,city or price" name="search" [(ngModel)]="search" #searchControl="ngModel"/>
+</mat-form-field>
+<div *ngFor="let real of realestate | searchPipe:search">
+    <div class="grid-container" >
+        <div class="grid-item">
+            <p>Typology: {{real.description.typology}}</p>
+            <p>Address: {{real.location.city}}, {{real.location.district}}</p>
+            <p>{{real.description.sqFeet}} &#13217; in area</p>
+            <p>Contact for further info: {{real.agentCellphone}}</p>
+            <p>Listed: {{real.publishState}} </p>
+            <p>Still in sale: {{real.forSale}} </p>
+            <button mat-button color="warn" (click)="editRealEstate(real._id)">Edit Property</button>
+        </div> 
+      </div>
+    </div>
+
+<app-footer></app-footer>
