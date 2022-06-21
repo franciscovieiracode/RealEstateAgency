@@ -1,7 +1,7 @@
 <app-header></app-header>
 
 <mat-form-field class="inputSearch">
-    <input required matInput  type="text" placeholder="Search here by typology,city or price" name="search" [(ngModel)]="search" #searchControl="ngModel"/>
+    <input matInput  type="text" placeholder="Search here by typology,city or price" name="search" [(ngModel)]="search" #searchControl="ngModel"/>
 </mat-form-field>
 <div *ngFor="let real of realestate | searchPipe:search">
     <div class="grid-container" >
